@@ -7,44 +7,70 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .heading { font-family: 'Space Grotesk', sans-serif; }
-        .hero { background: linear-gradient(135deg, #0f172a, #1e2937); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .sun-glow {
+            text-shadow: 0 0 20px rgb(245 158 11);
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-white">
-    <nav class="fixed top-0 w-full bg-zinc-950 border-b border-zinc-800 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <span class="text-4xl">☀️</span>
-                <span class="heading text-3xl font-bold">SUNBOX</span>
+                <div class="w-9 h-9 bg-amber-500 rounded-xl flex items-center justify-center text-2xl">☀️</div>
+                <span class="heading-font text-2xl font-semibold tracking-tight">SUNBOX</span>
             </div>
-            <a href="#get-started" class="bg-amber-500 text-black px-8 py-3 rounded-3xl font-semibold">Get SUNBOX</a>
+            <a href="#get-started" class="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-2xl transition-colors flex items-center gap-2">
+                <i class="fas fa-box"></i>
+                Get SUNBOX
+            </a>
         </div>
     </nav>
 
-    <header class="hero pt-28 pb-20 text-center">
-        <h1 class="heading text-6xl font-bold">One Box.<br>Unlimited Possibilities.</h1>
-        <p class="mt-6 text-xl text-zinc-300">Your personal server for websites, bots, AI, cloud, and more.</p>
-    </header>
-
-    <section class="py-20 bg-zinc-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-zinc-800 p-8 rounded-3xl">🌍 Host Websites</div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">🤖 Telegram Bots</div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">☁️ Private Cloud</div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">🎬 Media Server</div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">🧠 AI Tools</div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">🐳 Docker</div>
+    <!-- Hero -->
+    <header class="hero-bg pt-24 pb-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 pt-8">
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter">
+                    One Box.<br>
+                    <span class="text-amber-400 sun-glow">Unlimited Possibilities.</span>
+                </h1>
+                <p class="text-xl text-zinc-400 max-w-lg">
+                    The future of personal servers. Own your data, host everything, and take back control.
+                </p>
+            </div>
+            <div class="relative">
+                <img src="https://picsum.photos/id/1015/800/600" alt="SUNBOX" class="rounded-3xl shadow-2xl">
             </div>
         </div>
-    </section>
+    </header>
 
-    <footer class="py-12 text-center">
-        <p>© SUNBOX 2026</p>
+    <!-- Add the rest of your preferred sections here if needed -->
+    <footer class="py-12 text-center text-zinc-500">
+        <p>© 2026 SUNBOX • One Box. Unlimited Possibilities.</p>
     </footer>
 </body>
 </html>
