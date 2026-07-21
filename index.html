@@ -7,69 +7,60 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: system-ui, sans-serif; }
         .heading { font-family: 'Space Grotesk', sans-serif; }
-        .hero { background: linear-gradient(135deg, #0f172a, #1e2937); }
     </style>
 </head>
 <body class="bg-zinc-950 text-white">
     <nav class="fixed top-0 w-full bg-zinc-950 border-b border-zinc-800 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between">
             <div class="flex items-center gap-3">
                 <span class="text-4xl">☀️</span>
                 <span class="heading text-3xl font-bold">SUNBOX</span>
             </div>
-            <a href="#get-started" class="bg-amber-500 text-black px-8 py-3 rounded-3xl font-semibold">Buy Now</a>
+            <a href="#get-started" class="bg-amber-500 text-black px-8 py-3 rounded-3xl font-semibold">Pre-order</a>
         </div>
     </nav>
 
-    <header class="hero pt-28 pb-20 text-center">
-        <h1 class="heading text-6xl font-bold">One Box.<br>Unlimited Possibilities.</h1>
-        <p class="mt-6 text-xl max-w-2xl mx-auto">Your personal server that replaces expensive cloud subscriptions. Own your data, host everything, and stay in control.</p>
-        <img src="https://picsum.photos/id/1015/800/500" alt="SUNBOX Hardware" class="mx-auto mt-12 rounded-3xl shadow-2xl">
+    <header class="pt-28 pb-20 text-center bg-gradient-to-b from-zinc-900 to-black">
+        <h1 class="text-6xl font-bold">☀️ SUNBOX</h1>
+        <p class="text-3xl mt-4">One Box. Unlimited Possibilities.</p>
+        <img src="https://picsum.photos/id/1015/800/500" alt="SUNBOX Product" class="mx-auto mt-12 rounded-3xl shadow-2xl">
     </header>
 
-    <section class="py-20 bg-zinc-900">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Why SUNBOX is Helpful</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-zinc-800 p-8 rounded-3xl">
-                    <h3 class="text-2xl font-semibold mb-4">💰 Save Money</h3>
-                    <p>No more monthly fees for hosting, cloud storage, VPS, etc. One time investment.</p>
-                </div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">
-                    <h3 class="text-2xl font-semibold mb-4">🔒 Privacy & Security</h3>
-                    <p>Your data stays with you. Full control, no third-party access.</p>
-                </div>
-                <div class="bg-zinc-800 p-8 rounded-3xl">
-                    <h3 class="text-2xl font-semibold mb-4">🚀 Freedom</h3>
-                    <p>Host anything: websites, bots, AI, media, smart home — without limits.</p>
-                </div>
-            </div>
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-8">What is SUNBOX?</h2>
+            <p class="text-lg">A plug-and-play personal server that gives you complete control over your digital world. Host websites, Telegram bots, AI tools, private cloud, media servers, databases and more — all in one device.</p>
         </div>
     </section>
 
-    <section class="py-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Product Specifications</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <img src="https://picsum.photos/id/1015/800/600" alt="SUNBOX" class="rounded-3xl">
-                </div>
-                <div class="space-y-6">
-                    <div><strong>Processor:</strong> Intel N100 / Ryzen</div>
-                    <div><strong>RAM:</strong> 16-32 GB</div>
-                    <div><strong>Storage:</strong> 512 GB - 2 TB NVMe SSD</div>
-                    <div><strong>Connectivity:</strong> Gigabit Ethernet, WiFi, HDMI</div>
-                    <div><strong>Software:</strong> Ubuntu, Docker, Portainer, WordPress, databases, etc.</div>
-                </div>
-            </div>
+    <section class="py-16 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-8">What Can You Build?</h2>
+            <ul class="grid md:grid-cols-2 gap-4 text-lg">
+                <li>🌍 Host personal or business websites</li>
+                <li>🤖 Create Telegram Bots</li>
+                <li>☁️ Private Cloud Storage</li>
+                <li>🎬 Personal Media Server</li>
+                <li>🧠 Run AI Applications</li>
+                <li>🐳 Docker Containers</li>
+                <li>🗄️ Databases (MySQL, PostgreSQL)</li>
+                <li>🛒 E-commerce Stores</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-8">Hardware</h2>
+            <p class="text-lg">Intel N100 / Ryzen • 16–32 GB RAM • 512GB–2TB NVMe SSD • Silent & Compact</p>
+            <img src="https://picsum.photos/id/1015/800/400" alt="Hardware" class="mt-8 rounded-3xl">
         </div>
     </section>
 
     <footer class="py-12 text-center bg-black">
-        <p class="text-xl">Own Your Server. Own Your Future.</p>
+        <p class="text-xl">Own Your Server. Own Your Data. Own Your Future.</p>
         <p class="mt-4">☀️ SUNBOX</p>
     </footer>
 </body>
