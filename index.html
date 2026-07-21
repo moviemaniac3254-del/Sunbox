@@ -8,68 +8,393 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .heading { font-family: 'Space Grotesk', sans-serif; }
+        
+        :root {
+            --sun: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .sun-glow {
+            text-shadow: 0 0 20px rgb(245 158 11);
+        }
     </style>
 </head>
 <body class="bg-zinc-950 text-white">
-    <nav class="fixed top-0 w-full bg-zinc-950 border-b border-zinc-800 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <span class="text-4xl">☀️</span>
-                <span class="heading text-3xl font-bold">SUNBOX</span>
+                <div class="w-9 h-9 bg-amber-500 rounded-xl flex items-center justify-center text-2xl">☀️</div>
+                <span class="heading-font text-2xl font-semibold tracking-tight">SUNBOX</span>
             </div>
-            <a href="#get-started" class="bg-amber-500 text-black px-8 py-3 rounded-3xl font-semibold">Pre-order Now</a>
+            <div class="hidden md:flex items-center gap-8 text-sm">
+                <a href="#features" class="hover:text-amber-400 transition-colors">Features</a>
+                <a href="#hardware" class="hover:text-amber-400 transition-colors">Hardware</a>
+                <a href="#software" class="hover:text-amber-400 transition-colors">Software</a>
+                <a href="#dashboard" class="hover:text-amber-400 transition-colors">Dashboard</a>
+                <a href="#community" class="hover:text-amber-400 transition-colors">Community</a>
+            </div>
+            <a href="#get-started" 
+               class="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-2xl transition-colors flex items-center gap-2">
+                <i class="fas fa-box"></i>
+                Get SUNBOX
+            </a>
         </div>
     </nav>
 
-    <header class="pt-28 pb-20 text-center bg-gradient-to-b from-zinc-900 to-black">
-        <h1 class="heading text-7xl font-bold">One Box.<br>Unlimited Possibilities.</h1>
-        <p class="text-2xl mt-6">The Future of Personal Servers</p>
-        <img src="https://picsum.photos/id/1015/900/500" alt="SUNBOX" class="mx-auto mt-12 rounded-3xl shadow-2xl">
+    <!-- Hero -->
+    <header class="hero-bg pt-24 pb-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8 pt-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    Now in Prototype Stage
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl font-bold leading-none tracking-tighter">
+                    One Box.<br>
+                    <span class="text-amber-400 sun-glow">Unlimited Possibilities.</span>
+                </h1>
+                
+                <p class="text-xl text-zinc-400 max-w-lg">
+                    The future of personal servers. Own your data, host everything, and take back control.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#get-started" 
+                       class="px-8 py-4 bg-amber-500 hover:bg-amber-600 text-black font-semibold rounded-3xl text-lg flex items-center gap-3 transition-all">
+                        Pre-order Now
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#watch-video" 
+                       onclick="alert('Video coming soon in full version!')"
+                       class="px-8 py-4 border border-white/30 hover:border-white/60 font-medium rounded-3xl text-lg flex items-center gap-3 transition-all">
+                        <i class="fas fa-play"></i>
+                        Watch 1:42
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-8 text-sm pt-4">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-400"></i>
+                        <span>Ships with everything</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check text-green-400"></i>
+                        <span>No monthly fees</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <img id="hero-image" 
+                     src="https://picsum.photos/id/1015/800/600" 
+                     alt="SUNBOX Personal Server" 
+                     class="rounded-3xl shadow-2xl border border-amber-500/20">
+                <div class="absolute -bottom-6 -right-6 bg-zinc-900 border border-amber-400 rounded-2xl px-6 py-4 shadow-xl">
+                    <div class="flex items-center gap-4">
+                        <div class="text-4xl">☀️</div>
+                        <div>
+                            <div class="font-mono text-amber-400 text-sm">POWERED BY</div>
+                            <div class="text-xl font-semibold">Intel N100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">What is SUNBOX?</h2>
-            <p class="text-xl text-center max-w-3xl mx-auto">A plug-and-play personal server that gives you complete control over your digital world. Host websites, Telegram bots, AI tools, private cloud, media servers, databases and more.</p>
-        </div>
-    </section>
-
-    <section class="py-20 bg-zinc-900">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">What Can You Build?</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-lg">
-                <div>🌍 Host personal or business websites</div>
-                <div>🤖 Create Telegram Bots</div>
-                <div>☁️ Run your own private cloud</div>
-                <div>🎬 Create a personal Netflix-style media server</div>
-                <div>🧠 Run AI applications</div>
-                <div>🐳 Deploy Docker containers</div>
-                <div>🗄️ Host MySQL and PostgreSQL databases</div>
-                <div>🛒 Host e-commerce stores</div>
+    <!-- Trust Bar -->
+    <div class="bg-zinc-900 py-6 border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 text-zinc-400 text-sm">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-shield-alt"></i>
+                <span>Privacy First</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-bolt"></i>
+                <span>Low Power</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-plug"></i>
+                <span>Plug &amp; Play</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-users"></i>
+                <span>Community Driven</span>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Hardware Specifications</h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="space-y-6">
-                    <div><strong>Processor:</strong> Intel N100 / Ryzen</div>
-                    <div><strong>RAM:</strong> 16–32 GB</div>
-                    <div><strong>Storage:</strong> 512 GB – 2 TB NVMe SSD</div>
-                    <div><strong>Connectivity:</strong> Gigabit Ethernet, WiFi, HDMI, USB</div>
+    <!-- What is SUNBOX -->
+    <section class="py-20 bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5">
+                    <h2 class="heading-font text-5xl font-bold mb-6">What is <span class="text-amber-400">SUNBOX</span>?</h2>
+                    <p class="text-lg text-zinc-300 leading-relaxed">
+                        SUNBOX is a plug-and-play personal server that gives you complete control over your digital world. 
+                        Host websites, run AI tools, store your files privately, and much more — all in one beautiful, silent box.
+                    </p>
+                    <div class="mt-10 p-6 bg-zinc-900 rounded-3xl border border-amber-500/10">
+                        <div class="flex gap-4 items-start">
+                            <div class="text-4xl">🌍</div>
+                            <div>
+                                <div class="font-semibold text-xl">Own Your Infrastructure</div>
+                                <div class="text-zinc-400">No more subscriptions. No more data in someone else's cloud.</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <img src="https://picsum.photos/id/1015/800/500" alt="Hardware" class="rounded-3xl">
+                
+                <div class="md:col-span-7">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-zinc-900 p-8 rounded-3xl card-hover">
+                            <i class="fas fa-globe text-5xl text-amber-400 mb-6"></i>
+                            <div class="text-2xl font-semibold mb-2">Host Anything</div>
+                            <div class="text-zinc-400">Websites, bots, apps, databases — you name it.</div>
+                        </div>
+                        <div class="bg-zinc-900 p-8 rounded-3xl card-hover">
+                            <i class="fas fa-lock text-5xl text-amber-400 mb-6"></i>
+                            <div class="text-2xl font-semibold mb-2">Your Data, Your Rules</div>
+                            <div class="text-zinc-400">Complete privacy and security under your control.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-16 text-center bg-black">
-        <p class="text-2xl">Own Your Server. Own Your Data. Own Your Future.</p>
-        <p class="mt-8">☀️ SUNBOX</p>
+    <!-- What Can You Build -->
+    <section id="features" class="py-20 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="px-4 py-2 bg-amber-500/10 text-amber-400 rounded-full text-sm font-medium">POSSIBILITIES</span>
+                <h2 class="heading-font text-5xl font-bold mt-6">What Can You Build?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Repeat for all features -->
+                <div class="bg-zinc-800/50 p-8 rounded-3xl card-hover border border-transparent hover:border-amber-500/30">
+                    <div class="text-4xl mb-6">🌍</div>
+                    <h3 class="text-2xl font-semibold mb-2">Personal &amp; Business Websites</h3>
+                    <p class="text-zinc-400">Deploy WordPress, static sites, or custom apps instantly.</p>
+                </div>
+                <div class="bg-zinc-800/50 p-8 rounded-3xl card-hover border border-transparent hover:border-amber-500/30">
+                    <div class="text-4xl mb-6">🤖</div>
+                    <h3 class="text-2xl font-semibold mb-2">Telegram Bots &amp; Mini Apps</h3>
+                    <p class="text-zinc-400">Build and host powerful bots directly on your server.</p>
+                </div>
+                <div class="bg-zinc-800/50 p-8 rounded-3xl card-hover border border-transparent hover:border-amber-500/30">
+                    <div class="text-4xl mb-6">☁️</div>
+                    <h3 class="text-2xl font-semibold mb-2">Private Cloud Storage</h3>
+                    <p class="text-zinc-400">Your own Nextcloud or custom file server.</p>
+                </div>
+                <div class="bg-zinc-800/50 p-8 rounded-3xl card-hover border border-transparent hover:border-amber-500/30">
+                    <div class="text-4xl mb-6">🎬</div>
+                    <h3 class="text-2xl font-semibold mb-2">Media Server</h3>
+                    <p class="text-zinc-400">Your personal Netflix with Plex or Jellyfin.</p>
+                </div>
+                <div class="bg-zinc-800/50 p-8 rounded-3xl card-hover border border-transparent hover:border-amber-500/30">
+                    <div class="text-4xl mb-6">🧠</div>
+                    <h3 class="text-2xl font-semibold mb-2">AI Applications</h3>
+                    <p class="text-zinc-400">Run LLMs and AI tools locally.</p>
+                </div>
+                <div class="bg-zinc-800/50 p-8 rounded-3xl card-hover border border-transparent hover:border-amber-500/30">
+                    <div class="text-4xl mb-6">🐳</div>
+                    <h3 class="text-2xl font-semibold mb-2">Docker Containers</h3>
+                    <p class="text-zinc-400">Deploy any app with one click via Portainer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware -->
+    <section id="hardware" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="heading-font text-5xl font-bold mb-8">Powerful Yet Silent</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">⚡</div>
+                            <div>
+                                <div class="font-semibold">Intel N100 / Ryzen</div>
+                                <div class="text-zinc-400">Efficient performance for 24/7 operation</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">💾</div>
+                            <div>
+                                <div class="font-semibold">16–32 GB RAM + NVMe SSD</div>
+                                <div class="text-zinc-400">Fast and reliable storage up to 2TB</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">🔌</div>
+                            <div>
+                                <div class="font-semibold">Gigabit Ethernet + WiFi</div>
+                                <div class="text-zinc-400">Multiple connectivity options</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1015/800/600" 
+                         alt="SUNBOX Hardware" 
+                         class="rounded-3xl shadow-2xl w-full">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-3xl"></div>
+                    <div class="absolute bottom-8 left-8 text-sm bg-black/70 px-4 py-2 rounded-2xl flex items-center gap-2">
+                        <span class="text-green-400">●</span> 
+                        Silent Operation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software -->
+    <section id="software" class="py-20 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="heading-font text-5xl font-bold">Pre-loaded with Everything</h2>
+            </div>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">Ubuntu Server</span>
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">Docker + Portainer</span>
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">Nginx Proxy Manager</span>
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">WordPress</span>
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">MySQL / PostgreSQL</span>
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">Node.js • Python • PHP</span>
+                <span class="px-5 py-3 bg-zinc-800 rounded-3xl text-sm">Cloudflare Tunnel</span>
+                <span class="px-5 py-3 bg-amber-500 text-black rounded-3xl text-sm font-medium">+ Many More</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="py-20">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="heading-font text-5xl font-bold mb-6">Beautiful Dashboard</h2>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto">Control everything with zero command line needed. One-click installs, monitoring, backups, and more.</p>
+            
+            <div class="mt-12 bg-zinc-900 border border-zinc-700 rounded-3xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
+                <img src="https://picsum.photos/id/201/1200/700" 
+                     alt="SUNBOX Dashboard" 
+                     class="w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="get-started" class="py-24 bg-gradient-to-b from-zinc-900 to-black">
+        <div class="max-w-3xl mx-auto text-center px-6">
+            <div class="text-amber-400 text-6xl mb-6">☀️</div>
+            <h2 class="heading-font text-6xl font-bold mb-8">Ready to own your server?</h2>
+            <p class="text-2xl text-zinc-300 mb-10">Join the waitlist for early access and special pricing.</p>
+            
+            <div class="max-w-md mx-auto">
+                <div class="flex">
+                    <input type="email" id="email" 
+                           placeholder="your@email.com"
+                           class="flex-1 bg-zinc-900 border border-zinc-700 focus:border-amber-500 rounded-l-3xl px-6 py-5 text-lg outline-none">
+                    <button onclick="subscribe()" 
+                            class="bg-amber-500 hover:bg-amber-600 px-10 rounded-r-3xl font-semibold text-black">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+            
+            <p class="text-xs text-zinc-500 mt-8">Early supporters get lifetime updates + exclusive community access</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-8 h-8 bg-amber-500 rounded-2xl flex items-center justify-center">☀️</div>
+                    <span class="heading-font text-2xl">SUNBOX</span>
+                </div>
+                <p class="text-sm text-zinc-400">Own Your Server.<br>Own Your Data.<br>Own Your Future.</p>
+            </div>
+            <div>
+                <div class="font-medium mb-4">Product</div>
+                <div class="space-y-2 text-sm text-zinc-400">
+                    <div>Features</div>
+                    <div>Hardware</div>
+                    <div>Software</div>
+                    <div>Pricing</div>
+                </div>
+            </div>
+            <div>
+                <div class="font-medium mb-4">Community</div>
+                <div class="space-y-2 text-sm text-zinc-400">
+                    <div>Telegram Channel</div>
+                    <div>Discord</div>
+                    <div>Forum</div>
+                    <div>YouTube</div>
+                </div>
+            </div>
+            <div>
+                <div class="font-medium mb-4">Company</div>
+                <div class="space-y-2 text-sm text-zinc-400">
+                    <div>About</div>
+                    <div>Roadmap</div>
+                    <div>Resellers</div>
+                    <div>Contact</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-zinc-500 text-xs mt-16">
+            © 2026 SUNBOX • One Box. Unlimited Possibilities.
+        </div>
     </footer>
+
+    <script>
+        function subscribe() {
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert("Thank you! You've been added to the SUNBOX waitlist. 🚀");
+            } else {
+                alert("Please enter your email address.");
+            }
+        }
+        
+        // Tailwind script already loaded
+        console.log("%cSUNBOX Website Loaded Successfully ☀️", "color: #f59e0b; font-size: 14px; font-weight: bold");
+        
+        // Randomize hero image occasionally from searched ones
+        const heroImages = [
+            "https://picsum.photos/id/1015/800/600",
+            "https://picsum.photos/id/201/800/600"
+        ];
+        setTimeout(() => {
+            const random = heroImages[Math.floor(Math.random() * heroImages.length)];
+            document.getElementById('hero-image').src = random;
+        }, 1500);
+    </script>
 </body>
 </html>
